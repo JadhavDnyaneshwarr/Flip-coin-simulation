@@ -7,7 +7,7 @@ head=0;
 tail=0;
 i=1;
 
-while (( tail<34 && head<34 ))
+while (( tail<21 && head<21 ))
 do
 	flipcoin=$(( RANDOM%2 ));
 	coin[$i]=$flipcoin;
@@ -25,7 +25,14 @@ done
 
 if [[ $head -gt $tail ]]
 then
-	echo "Heads is winner for: $head";
+	H=$(( $head-$tail ));
+	echo "Heads is winner and win by $H times";
+
+elif [[ $tail -gt $head ]]
+then
+	T=$(( $tail-$head ));
+	echo "Tails is winner and win by $T times";
+
 else
-	echo "Tails is winner for: $tail";
+	echo "The coin flipped and Both Win equal times"; 
 fi
